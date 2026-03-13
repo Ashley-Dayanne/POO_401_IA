@@ -1,6 +1,6 @@
-package com.mx.curso.Unidad1.checkpoints.checkpoint3;
+package com.mx.curso.Unidad1.checkpoints.checkpoint2.contextualizacion3;
 
-public class Metrica {
+class Metrica {
     public void calcularResultado() {
         System.out.println("Calculando resultado de la métrica...");
     }
