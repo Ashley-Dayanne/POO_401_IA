@@ -1,34 +1,45 @@
 package com.mx.curso.Unidad1;
 
-class FiltroImagen {
-    public void aplicar() {
-        System.out.println("Aplicando filtro a la imagen...");
+import java.util.ArrayList;
+import java.util.List;
+
+public class FiltroImagen {
+    public void procesar() {
+        String mensaje = "procesando imagen";
+        System.out.println(mensaje);
     }
-}
+}package unidad1.pipelineprocesamiento;
 
-class DetectorDeBordes extends FiltroImagen {
-
+class DectectorDeBordes extends FiltroImagen {
     @Override
-    public void aplicar() {
-        System.out.println("Aplicando detector de bordes con kernel.");
+    public void procesar() {
+        System.out.print("procesando ");
+        System.out.println("image");
     }
-}
+}package unidad1.pipelineprocesamiento;
 
-class ReductorDeRuido extends FiltroImagen {
-
+class EscaladaDegrices extends FiltroImagen {
     @Override
-    public void aplicar() {
-        System.out.println("Aplicando reducción de ruido con kernel.");
+    public void procesar() {
+        final String TAREA = "procesando imagen";
+        System.out.println(TAREA);
     }
-}
+}package unidad1.pipelineprocesamiento;
 
 public class Main {
     public static void main(String[] args) {
+        List<FiltroImagen> pipiline = new ArrayList<>();
 
-        DetectorDeBordes bordes = new DetectorDeBordes();
-        bordes.aplicar();
+        FiltroImagen r = new ReductorDeRuido();
+        FiltroImagen r = new DectectorDeBordes();
+        FiltroImagen r = new EscaladaDegrices();
 
-        ReductorDeRuido ruido = new ReductorDeRuido();
-        ruido.aplicar();
+        pipiline.add(r);
+        pipiline.add(r);
+        pipiline.add(r);
+
+        for (FiltroImagen f : pipiline) {
+            f.procesar();
+        }
     }
 }
