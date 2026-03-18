@@ -1,6 +1,22 @@
-package com.mx.curso.Unidad1.checkpoints.checkpoint1;
+package com.mx.curso.Unidad1;
 
-import static com.mx.curso.Unidad1.checkpoints.checkpoint1.Drone.*;
+import static com.mx.curso.Unidad1.Drone.*;
+import static com.mx.curso.Unidad1.Drone.drone3;
+
+class Drone {
+
+    public static Drone drone1;
+    public static Drone drone2;
+    public static Drone drone3;
+    String id;
+    int bateria;
+
+    // Constructor
+    public Drone(String id, int bateria) {
+        this.id = id;
+        this.bateria = bateria;
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
@@ -18,3 +34,5 @@ public class Main {
         System.out.println(drone3.id + " batería: " + drone3.bateria);
     }
 }
+
+

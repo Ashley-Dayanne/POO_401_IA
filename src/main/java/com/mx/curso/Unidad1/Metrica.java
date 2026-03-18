@@ -1,4 +1,4 @@
-package com.mx.curso.Unidad1.checkpoints.checkpoint2.contextualizacion3;
+package com.mx.curso.Unidad1;
 
 class Metrica {
     public void calcularResultado() {
@@ -19,6 +19,18 @@ class ErrorCuadraticoMedio extends Metrica {
     @Override
     public void calcularResultado() {
         System.out.println("Calculando Error Cuadrático Medio (MSE).");
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        Precision p = new Precision();
+        p.calcularResultado();
+
+        ErrorCuadraticoMedio mse = new ErrorCuadraticoMedio();
+        mse.calcularResultado();
     }
 }
 

@@ -1,4 +1,4 @@
-package com.mx.curso.Unidad1.checkpoints.checkpoint2.contextualizacion5;
+package com.mx.curso.Unidad1;
 
 class CapaNeuronal {
     public void propagacionHaciaAdelante() {
@@ -21,3 +21,15 @@ class CapaDensa extends CapaNeuronal {
         System.out.println("Transformando tensores con capa densa.");
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+
+        CapaConvolucional conv = new CapaConvolucional();
+        conv.propagacionHaciaAdelante();
+
+        CapaDensa densa = new CapaDensa();
+        densa.propagacionHaciaAdelante();
+    }
+}
+

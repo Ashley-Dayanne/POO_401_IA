@@ -1,4 +1,4 @@
-package com.mx.curso.Unidad1.checkpoints.checkpoint2.contextualizacion1;
+package com.mx.curso.Unidad1;
 
 class Dataset {
     public void cargarDatos() {
@@ -15,5 +15,18 @@ class DatasetImagen extends Dataset {
 class DatasetTexto extends Dataset {
     public void cargarTokens() {
         System.out.println("Cargando tokens del texto...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        DatasetImagen imagen = new DatasetImagen();
+        imagen.cargarDatos();
+        imagen.cargarPixeles();
+
+        DatasetTexto texto = new DatasetTexto();
+        texto.cargarDatos();
+        texto.cargarTokens();
     }
 }
