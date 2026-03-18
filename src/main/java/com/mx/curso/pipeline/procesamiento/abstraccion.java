@@ -28,7 +28,6 @@ public void setPrecision(double precision) {
 
 // CONTRATO ABSTRACTO
 public abstract void analizar(String texto);
-        }
 
 
 // 2. IMPLEMENTACIÓN: Analizador de Sentimientos
