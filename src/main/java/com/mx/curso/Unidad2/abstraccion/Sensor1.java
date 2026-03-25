@@ -1,4 +1,4 @@
-package com.mx.curso.Unidad2;
+package com.mx.curso.Unidad2.abstraccion;
 
 import java.util.ArrayList;
 import java.util.List;
