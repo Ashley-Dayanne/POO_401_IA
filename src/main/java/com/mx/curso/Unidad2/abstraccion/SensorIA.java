@@ -1,5 +1,7 @@
 package com.mx.curso.Unidad2.abstraccion;
 
+import jdk.internal.vm.ThreadContainer;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,21 +55,29 @@ class SensorUltrasonido extends SensorIA {
 
 
 public class Main {
+    private static ThreadContainer percepcionHD;
+
     public static void main(String[] args) {
 
-        // Hub de percepción
         List<SensorIA> percepcionHub = new ArrayList<SensorIA>();
 
-        // Agregar sensores
-        percepcionHub.add(new SensorLidar("Lidar-X1", 15.5));
-        percepcionHub.add(new SensorVision("Cam-HD", 10.2));
-        percepcionHub.add(new SensorUltrasonido("UltraSound-Pro", 5.8));
+       SensorLidar obj1 = new SensorLidar();
+       SensorLidar obj2 = new SensorLidar();
+       SensorVision obj3 = new SensorVision();
+       SensorVision obj4 = new SensorVision();
+       SensorUltrasonido obj5 = new SensorUltrasonido();
+       SensorUltrasonido obj6 = new SensorUltrasonido();
 
-        // Demostración de Polimorfismo
-        System.out.println("=== Iniciando lectura de sensores ===");
+       percepcionHD.add(obj1);
+       percepcionHD.add(obj2);
+       percepcionHD.add(obj3);
+       percepcionHD.add(obj4);
+       percepcionHD.add(obj5);
+       percepcionHD.add(obj6);
 
-        for (SensorIA sensor : percepcionHub) {
-            sensor.leerDatos(); // Polimorfismo en acción
+
+        for (SensorIA f : percepcionHub) {
+            f.leerDatos();
         }
     }
 }
