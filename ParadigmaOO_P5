@@ -1,0 +1,36 @@
+interface Encendible {
+    void encender();
+    void apagar();
+}
+
+class TV implements Encendible {
+    public void encender() {
+        System.out.println("TV encendida");
+    }
+    public void apagar() {
+        System.out.println("TV apagada");
+    }
+}
+
+class Bombilla implements Encendible {
+    public void encender() {
+        System.out.println("Bombilla encendida");
+    }
+    public void apagar() {
+        System.out.println("Bombilla apagada");
+    }
+}
+
+public class Main5 {
+    public static void main(String[] args) {
+        Encendible[] dispositivos = {
+            new TV(),
+            new Bombilla()
+        };
+
+        for (Encendible d : dispositivos) {
+            d.encender();
+            d.apagar();
+        }
+    }
+}
