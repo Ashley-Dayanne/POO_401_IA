@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+
+abstract class Sensor {
+    protected String nombre;
+
+    public Sensor(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+    public abstract void procesarDato(double dato);
+}
+
+
+class SensorTemperatura extends Sensor {
+
+    public SensorTemperatura(String nombre) {
+        super(nombre);
+    }
+
+    @Override
+    public void procesarDato(double dato) {
+        System.out.println(nombre + ": Temperatura registrada = " + dato + "°C");
+
+        if (dato > 30) {
+            System.out.println("Alerta: Temperatura alta");
+        }
+    }
+}
+
+
+class SensorMovimiento extends Sensor {
+
+    public SensorMovimiento(String nombre) {
+        super(nombre);
+    }
+
+    @Override
+    public void procesarDato(double dato) {
+        if (dato == 1) {
+            System.out.println(nombre + ": Movimiento detectado");
+        } else {
+            System.out.println(nombre + ": Sin movimiento");
+        }
+    }
+}
+
+
+class SensorLuz extends Sensor {
+
+    public SensorLuz(String nombre) {
+        super(nombre);
+    }
+
+    @Override
+    public void procesarDato(double dato) {
+        System.out.println(nombre + ": Nivel de luz = " + dato);
+
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<Sensor> sensores = new ArrayList<>();
+
+        sensores.add(new SensorTemperatura("Sensor Temp"));
+        sensores.add(new SensorMovimiento("Sensor Movimiento"));
+        sensores.add(new SensorLuz("Sensor Luz"));
+
+        // Datos de prueba
+        double[] datos = {35.5, 1, 10};
+
+        // Procesamiento polimórfico
+        for (int i = 0; i < sensores.size(); i++) {
+            sensores.get(i).procesarDato(datos[i]);
+            System.out.println("----------------------");
+        }
+    }
+}
