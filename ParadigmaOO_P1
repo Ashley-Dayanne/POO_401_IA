@@ -1,0 +1,26 @@
+class Restaurante {
+    String nombre;
+    String tipoDeComida;
+    int calificacion;
+
+    void abrir() {
+        System.out.println("El restaurante " + nombre + " está abierto.");
+    }
+}
+
+public class Main1 {
+    public static void main(String[] args) {
+        Restaurante r1 = new Restaurante();
+        r1.nombre = "La Parrilla";
+        r1.tipoDeComida = "Mexicana";
+        r1.calificacion = 5;
+
+        Restaurante r2 = new Restaurante();
+        r2.nombre = "Sushi House";
+        r2.tipoDeComida = "Japonesa";
+        r2.calificacion = 4;
+
+        r1.abrir();
+        r2.abrir();
+    }
+}
