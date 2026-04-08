@@ -1,0 +1,45 @@
+class Producto {
+    String nombre;
+    double precio;
+
+    void mostrarDetalles() {
+        System.out.println(nombre + " - $" + precio);
+    }
+}
+
+class Electronica extends Producto {
+    int garantia;
+
+    @Override
+    void mostrarDetalles() {
+        System.out.println(nombre + " - $" + precio + " Garantía: " + garantia + " años");
+    }
+}
+
+class Alimento extends Producto {
+    String fechaCaducidad;
+
+    @Override
+    void mostrarDetalles() {
+        System.out.println(nombre + " - $" + precio + " Caduca: " + fechaCaducidad);
+    }
+}
+
+public class Main9 {
+    public static void main(String[] args) {
+        Producto[] productos = {
+            new Electronica(),
+            new Alimento()
+        };
+
+        productos[0].nombre = "Laptop";
+        productos[0].precio = 15000;
+
+        productos[1].nombre = "Pan";
+        productos[1].precio = 30;
+
+        for (Producto p : productos) {
+            p.mostrarDetalles();
+        }
+    }
+}
