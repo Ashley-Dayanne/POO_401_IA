@@ -1,0 +1,29 @@
+class Libro {
+    String titulo;
+    String autor;
+    int paginas;
+
+    void mostrarInfo() {
+        System.out.println("Título: " + titulo);
+        System.out.println("Autor: " + autor);
+        System.out.println("Páginas: " + paginas);
+        System.out.println("------------------------");
+    }
+}
+
+public class Main1 {
+    public static void main(String[] args) {
+        Libro libro1 = new Libro();
+        libro1.titulo = "Cien años de soledad";
+        libro1.autor = "Gabriel García Márquez";
+        libro1.paginas = 417;
+
+        Libro libro2 = new Libro();
+        libro2.titulo = "El principito";
+        libro2.autor = "Antoine de Saint-Exupéry";
+        libro2.paginas = 96;
+
+        libro1.mostrarInfo();
+        libro2.mostrarInfo();
+    }
+}
