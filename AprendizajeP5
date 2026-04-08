@@ -1,0 +1,28 @@
+interface PuedeVolar {
+    void volar();
+}
+
+class Avion implements PuedeVolar {
+    public void volar() {
+        System.out.println("El avión enciende sus motores y despega");
+    }
+}
+
+class Pajaro implements PuedeVolar {
+    public void volar() {
+        System.out.println("El pájaro bate sus alas");
+    }
+}
+
+public class Main5 {
+    public static void main(String[] args) {
+        PuedeVolar[] objetos = {
+            new Avion(),
+            new Pajaro()
+        };
+
+        for (PuedeVolar obj : objetos) {
+            obj.volar();
+        }
+    }
+}
