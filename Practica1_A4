@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Actividad4 {
+
+    // Método que valida email
+    public static boolean validarEmail(String email) {
+        if (email.contains("@")) {
+            return true; // válido
+        }
+        return false; // inválido
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String email;
+
+        do {
+            System.out.print("Ingrese su email: ");
+            email = sc.nextLine();
+
+            if (!validarEmail(email)) {
+                System.out.println("Email inválido");
+            }
+
+        } while (!validarEmail(email));
+
+        System.out.println("Email válido registrado");
+    }
+}
