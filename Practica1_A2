@@ -1,0 +1,30 @@
+public class Actividad2 {
+    public static void main(String[] args) {
+
+        int[] stock = {60, 45, 5, 0, 20, 80, 2, 15, 0, 55};
+
+        for (int i = 0; i < stock.length; i++) {
+            int cantidad = stock[i];
+            String estado;
+
+            // Clasificación usando switch con rangos simulados
+            switch (cantidad) {
+                case 0:
+                    estado = "Descontinuado";
+                    break;
+                default:
+                    if (cantidad > 50) {
+                        estado = "En stock";
+                    } else if (cantidad >= 10) {
+                        estado = "Bajo stock";
+                    } else {
+                        estado = "Urgente";
+                    }
+            }
+
+            System.out.println("Producto " + (i + 1) + 
+                               " | Cantidad: " + cantidad + 
+                               " | Estado: " + estado);
+        }
+    }
+}
