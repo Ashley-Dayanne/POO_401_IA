@@ -1,0 +1,79 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
+interface SerializableModelo {
+    void guardarEnDisco(String ruta);
+}
+
+class RedNeuronal implements SerializableModelo {
+    private String nombre;
+    private int numeroParametros;
+
+    public RedNeuronal(String nombre, int numeroParametros) {
+        this.nombre = nombre;
+        this.numeroParametros = numeroParametros;
+    }
+
+    @Override
+    public void guardarEnDisco(String ruta) {
+        try {
+            FileWriter writer = new FileWriter(ruta);
+            writer.write("Modelo: Red Neuronal\n");
+            writer.write("Nombre: " + nombre + "\n");
+            writer.write("Parámetros: " + numeroParametros + "\n");
+            writer.close();
+
+            System.out.println("Red Neuronal guardada en: " + ruta);
+        } catch (IOException e) {
+            System.out.println("Error al guardar la red neuronal");
+        }
+    }
+}
+
+class ArbolDecision implements SerializableModelo {
+    private String nombre;
+    private int profundidad;
+
+    public ArbolDecision(String nombre, int profundidad) {
+        this.nombre = nombre;
+        this.profundidad = profundidad;
+    }
+
+    @Override
+    public void guardarEnDisco(String ruta) {
+        try {
+            FileWriter writer = new FileWriter(ruta);
+            writer.write("Modelo: Árbol de Decisión\n");
+            writer.write("Nombre: " + nombre + "\n");
+            writer.write("Profundidad: " + profundidad + "\n");
+            writer.close();
+
+            System.out.println("Árbol de decisión guardado en: " + ruta);
+        } catch (IOException e) {
+            System.out.println("Error al guardar el árbol");
+        }
+    }
+}
+
+
+// Servicio que maneja cualquier modelo
+class ServicioModelos {
+
+    public void guardarModelo(SerializableModelo modelo, String ruta) {
+        modelo.guardarEnDisco(ruta);
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        SerializableModelo red = new RedNeuronal("DeepLearningV1", 1000000);
+        SerializableModelo arbol = new ArbolDecision("DecisionTreeV1", 5);
+
+        ServicioModelos servicio = new ServicioModelos();
+
+        servicio.guardarModelo(red, "red.txt");
+        servicio.guardarModelo(arbol, "arbol.txt");
+    }
+}
