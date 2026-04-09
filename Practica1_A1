@@ -1,0 +1,33 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Actividad1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Nombre del producto: ");
+            String nombre = sc.nextLine();
+
+            System.out.print("Cantidad en stock: ");
+            int cantidad = sc.nextInt();
+
+            System.out.print("Precio unitario: ");
+            double precio = sc.nextDouble();
+
+            // Validaciones con if-else
+            if (cantidad <= 0) {
+                System.out.println("Error: La cantidad debe ser mayor a 0");
+            } else if (precio <= 0) {
+                System.out.println("Error: El precio debe ser positivo");
+            } else {
+                System.out.println("Producto registrado correctamente");
+                System.out.println(nombre + " | Cantidad: " + cantidad + " | Precio: $" + precio);
+            }
+
+        } catch (InputMismatchException e) {
+            // Manejo de error si el usuario ingresa texto en lugar de número
+            System.out.println("Error: Debes ingresar valores numéricos válidos");
+        }
+    }
+}
