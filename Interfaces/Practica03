@@ -1,0 +1,57 @@
+import java.util.*;
+
+interface Entrenable {
+    void ajustarPesos(double tasaAprendizaje);
+}
+
+class RedNeuronal implements Entrenable {
+    private String nombre;
+
+    public RedNeuronal(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public void ajustarPesos(double tasaAprendizaje) {
+        System.out.println("Red Neuronal [" + nombre + "] ajustando pesos con tasa: " + tasaAprendizaje);
+    }
+}
+
+
+//Simulación API
+class ClasificadorExterno implements Entrenable {
+    private String endpointAPI;
+
+    public ClasificadorExterno(String endpointAPI) {
+        this.endpointAPI = endpointAPI;
+    }
+
+    @Override
+    public void ajustarPesos(double tasaAprendizaje) {
+        System.out.println("Llamando API en " + endpointAPI);
+        System.out.println("Ajustando modelo externo con tasa: " + tasaAprendizaje);
+    }
+}
+
+class Optimizador {
+
+    public void entrenarModelo(Entrenable modelo, double tasa) {
+        System.out.println("Iniciando entrenamiento...");
+        modelo.ajustarPesos(tasa);
+        System.out.println("Entrenamiento finalizado\n");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Entrenable red = new RedNeuronal("ModeloDeepLearning");
+        Entrenable externo = new ClasificadorExterno("https://api.modelo.com/train");
+
+        Optimizador optimizador = new Optimizador();
+
+        // Entrenamiento
+        optimizador.entrenarModelo(red, 0.01);
+        optimizador.entrenarModelo(externo, 0.05);
+    }
+}
