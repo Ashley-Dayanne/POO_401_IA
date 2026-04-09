@@ -1,0 +1,77 @@
+import java.util.*;
+
+// Interfaz
+interface Tokenizador {
+    List<String> dividirTexto(String parrafo);
+}
+
+// Implementación básica (separa por espacios)
+class TokenizadorBasico implements Tokenizador {
+
+    @Override
+    public List<String> dividirTexto(String parrafo) {
+        String[] tokens = parrafo.split(" ");
+        return Arrays.asList(tokens);
+    }
+}
+
+// Implementación tipo HuggingFace (simulación de sub-palabras)
+class TokenizadorHuggingFace implements Tokenizador {
+
+    @Override
+    public List<String> dividirTexto(String parrafo) {
+        List<String> tokens = new ArrayList<>();
+
+        // Simulación simple de sub-palabras
+        for (String palabra : parrafo.split(" ")) {
+            if (palabra.length() > 4) {
+                tokens.add(palabra.substring(0, 3) + "##");
+                tokens.add("##" + palabra.substring(3));
+            } else {
+                tokens.add(palabra);
+            }
+        }
+
+        return tokens;
+    }
+}
+
+// Clase que usa el tokenizador (no depende de implementación específica)
+class ProcesadorTexto {
+    private Tokenizador tokenizador;
+
+    public ProcesadorTexto(Tokenizador tokenizador) {
+        this.tokenizador = tokenizador;
+    }
+
+    public void procesar(String texto) {
+        List<String> tokens = tokenizador.dividirTexto(texto);
+        System.out.println("Tokens generados:");
+        for (String t : tokens) {
+            System.out.println(t);
+        }
+    }
+}
+
+// Clase principal
+public class Main {
+    public static void main(String[] args) {
+
+        String texto = "Procesamiento de lenguaje natural";
+
+        // Uso con tokenizador básico
+        Tokenizador basico = new TokenizadorBasico();
+        ProcesadorTexto procesador1 = new ProcesadorTexto(basico);
+
+        System.out.println("=== Tokenizador Básico ===");
+        procesador1.procesar(texto);
+
+        System.out.println("\n=== Tokenizador HuggingFace ===");
+
+        // Cambio dinámico de implementación
+        Tokenizador hugging = new TokenizadorHuggingFace();
+        ProcesadorTexto procesador2 = new ProcesadorTexto(hugging);
+
+        procesador2.procesar(texto);
+    }
+}
