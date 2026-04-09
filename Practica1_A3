@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Actividad3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String estado = "";
+
+        while (!estado.equalsIgnoreCase("Entregado")) {
+            System.out.print("Estado del pedido: ");
+            estado = sc.nextLine();
+
+            if (estado.equalsIgnoreCase("Error en envío")) {
+                System.out.println("Error detectado. Proceso detenido.");
+                break; // Detiene todo el proceso
+            }
+
+            if (estado.equalsIgnoreCase("En camino")) {
+                System.out.println("El pedido sigue en camino...");
+                continue; // Salta al siguiente ciclo
+            }
+
+            System.out.println("Estado actual: " + estado);
+        }
+
+        if (estado.equalsIgnoreCase("Entregado")) {
+            System.out.println("Pedido entregado correctamente");
+        }
+    }
+}
