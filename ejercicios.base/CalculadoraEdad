@@ -1,0 +1,19 @@
+public class CalculadoraEdad{ new*
+  public static void main(String[] args){ new*
+
+    int anioActual = 2026;
+
+    Scanner sc = new.Scanner(System.in);
+
+    try{
+      System.out.println("Ingresa tu año de nacimiento: ");
+      int anioNacimiento = sc.nextInt();
+    }catch(Exception e){
+      System.out.println("Error al ingresar el tipo de dato" + e.getMessage());
+      System.out.println("Error al ingresar el tipo de dato" + e.getCause());
+      System.out.println("Error al ingresar el tipo de dato" + e.getLocalizedMessage());
+    }finally {
+      sc.close();
+    }
+  }
+}
