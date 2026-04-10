@@ -1,0 +1,29 @@
+class DataSet { no usages new*
+
+}
+
+public class EjemploSobreCargaMetodos{ no usages new*
+
+  public void entrenar(DataSet[] datasets){ no usages new*
+    System.out.println("Metodo entrenar con 1 parámetro");
+  }
+
+  public void entrenar(DataSet[] datasets, int epoca){ no usages new*
+    System.out.println("Metodo entrenar sobrecargado");
+  }
+}
+
+public class Main { new*
+
+  public static void main(String[] args){
+    EjemploSobreCargaMetodos carga = new EjemploSobreCargaMetodos();
+
+    DataSet[] datasets = new DataSet[5];
+    int epoca = 1;
+
+    carga.entrenar(datasets, epoca); //método sobrecargado
+    carga.entrenar(datasets); //método sobrecargado
+
+    
+  }
+}
