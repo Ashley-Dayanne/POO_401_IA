@@ -1,0 +1,27 @@
+public class CalculadoraPromedio{ new*
+
+  public static void main(String[] args){ new*
+
+    double nota1 = DD;
+    double nota2 = DD;
+
+    Scaner sc = new Scanner(System.in);
+
+    try{
+      System.out.println("Ingresa la primera nota");
+      nota1 = sc.nextDouble();
+
+      System.out.println("Ingresa la segunda nota");
+      nota2 = sc.nextDouble();
+
+      double promedio = (nota 1 + nota2)/2;
+      System.out.printl("ÇPromedio: " + promedio);
+
+    }catch(InputMismatchException 0){
+      System.out.println("Sólo ingresar nímeros" + e.getCause());
+    }finally{
+      System.out.println("Liberando recursos");
+      sc.close();
+    }
+  }
+}
