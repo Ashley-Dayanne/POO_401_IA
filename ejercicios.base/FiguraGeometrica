@@ -19,14 +19,15 @@ abstract class FiguraGeometrica{
 public class Circulo extends FiguraGeometrica{
 
   double radio;
-  public Circulo(String nombre){
+  public Circulo(String nombre, double radio){
+    this.radio = radio;
     super(nombre);
   }
 
   @Override
   double CalcularArea(){
     double pi = 3.1416;
-    double area = (pi*radio)*(pi*radio);
+    double area = pi*radio*radio;
     return area;
   }
 
@@ -39,7 +40,9 @@ public class Circulo extends FiguraGeometrica{
 public class Rectangulo extends FiguraGeometrica{
 
   double base, altura;
-  public Rectangulo(String nombre){
+  public Rectangulo(String nombre, double base, double altura){
+    this.base = base;
+    this.altura = altura;
     super(nombre);
   }
 
@@ -59,12 +62,12 @@ public class Main{
   public static void main(String[] args) {
     List<FiguraGeometricca>figuras = new ArrayList<>();
 
-    figuras.add(new Circulo(nombre: "Circulo"));
-    figuras.add(new Rectangulo(nombre: "Rectangulo"));
+    figuras.add(new Circulo(nombre: "Circulo", 5));
+    figuras.add(new Rectangulo(nombre: "Rectangulo", 2, 3));
 
     for(FiguraGeometrica f: figuras){
-      f.mostrarNombre;
-      f.calcularArea;
+      f.mostrarNombre();
+      System.out.println("Área= " + f.calcularArea());
     }
   }
 }
