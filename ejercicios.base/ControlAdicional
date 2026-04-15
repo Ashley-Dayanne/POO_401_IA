@@ -1,0 +1,49 @@
+public class ControlAdicional {
+
+    public static void ejemploBreak() {
+        System.out.println("=== Uso de break ===");
+
+        for (int i = 1; i <= 10; i++) {
+            if (i == 5) {
+                break;
+            }
+            System.out.println(i);
+        }
+    }
+
+    public static void ejemploContinue() {
+        System.out.println("\n=== Uso de continue ===");
+
+        for (int i = 1; i <= 10; i++) {
+            if (i % 2 == 0) {
+                continue;
+            }
+            System.out.println(i);
+        }
+    }
+
+    public static String encontrarNumero(int[] arreglo, int objetivo) {
+        for (int num : arreglo) {
+            if (num == objetivo) {
+                return "Número " + objetivo + " encontrado";
+            }
+        }
+        return "Número " + objetivo + " no encontrado";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        ControlAdicional.ejemploBreak();
+        ControlAdicional.ejemploContinue();
+
+        System.out.println("\n=== Uso de return ===");
+
+        int[] numeros = {3, 7, 10, 15, 20};
+        int objetivo = 10;
+
+        String resultado = ControlAdicional.encontrarNumero(numeros, objetivo);
+        System.out.println(resultado);
+    }
+}
