@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class AnalizadorDeNumeros {
+
+    //Tarea 1
+    public static void sumaRango() {
+        System.out.println("=== Suma del 1 al 100 (for) ===");
+
+        int suma = 0;
+
+        for (int i = 1; i <= 100; i++) {
+            suma += i;
+        }
+
+        System.out.println("La suma es: " + suma);
+    }
+
+    //Tarea 2
+    public static void encontrarMayorA50() {
+        System.out.println("\n=== Primer número mayor a 50 (while) ===");
+
+        int num = 1;
+
+        while (true) {
+            if (num > 50) {
+                System.out.println("El primer número mayor a 50 es: " + num);
+                break; // salir del ciclo
+            }
+            num++;
+        }
+    }
+
+    //Tarea 3
+    public static void validarContrasena() {
+        System.out.println("\n=== Validación de contraseña (do-while) ===");
+
+        Scanner sc = new Scanner(System.in);
+        String passwordCorrecta = "1234";
+        String password;
+        boolean esCorrecta;
+
+        do {
+            System.out.print("Ingrese la contraseña: ");
+            password = sc.nextLine();
+
+            if (password.equals(passwordCorrecta)) {
+                esCorrecta = true;
+                System.out.println("Contraseña correcta");
+            } else {
+                esCorrecta = false;
+                System.out.println("Contraseña incorrecta");
+            }
+
+        } while (!esCorrecta);
+    }
+
+public class Main {
+    public static void main(String[] args) {
+
+        AnalizadorDeNumeros.sumaRango();
+        AnalizadorDeNumeros.encontrarMayorA50();
+        AnalizadorDeNumeros.validarContrasena();
+
+    }
+}
+}
