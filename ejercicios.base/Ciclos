@@ -1,0 +1,41 @@
+public class ManejoDeCiclos {
+    public static void conteoAscendente() {
+        System.out.println("=== Conteo Ascendente (while) ===");
+
+        int i = 1;
+        while (i <= 5) {
+            System.out.println(i);
+            i++;
+        }
+    }
+
+    //Tarea 2
+    public static void conteoDescendente() {
+        System.out.println("\n=== Conteo Descendente (do-while) ===");
+
+        int i = 10;
+        do {
+            System.out.println(i);
+            i--;
+        } while (i >= 8);
+    }
+
+    //Tarea 3
+    public static void tablaMultiplicar() {
+        System.out.println("\n=== Tabla del 7 (for) ===");
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("7 x " + i + " = " + (7 * i));
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        ManejoDeCiclos.conteoAscendente();
+        ManejoDeCiclos.conteoDescendente();
+        ManejoDeCiclos.tablaMultiplicar();
+
+    }
+}
