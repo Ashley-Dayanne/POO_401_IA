@@ -1,17 +1,23 @@
 public class OperacionMatematica {
 
-    public static void main(String[] args) {
-
+    public static void realizarOperaciones() {
         int producto;
         int cociente;
 
         int multiplicacion = 8 * 12;
-        int division = 20 / 4;   
+        int division = 20 / 4;
 
         producto = multiplicacion;
         cociente = division;
+        System.out.println("Resultado del producto (8 * 12): " + producto);
+        System.out.println("Resultado del cociente (20 / 4): " + cociente);
+    }
+}
 
-        System.out.println("Resultado de la multiplicación (producto): " + producto);
-        System.out.println("Resultado de la división (cociente): " + cociente);
+public class Main {
+    public static void main(String[] args) {
+
+        OperacionMatematica.realizarOperaciones();
+
     }
 }
