@@ -1,0 +1,34 @@
+public class DataSetManager{
+  public static void main(String[] args){
+    List<String> dataset = new.ArrayList<>();
+    dataset.add("gato01.jpg");
+    dataset.add("gato02.jpg");
+    dataset.add("gato03.jpg");
+    dataset.add("gato04.jpg");
+
+    System.out.println("data set original" + " " + dataset);
+
+    //Método para saber el tamaño de la lista
+    System.out.printl("Tamaño de la lista(dataset):" + " " + dataset.size());
+
+    //Saber si la lista contiene un elemento en específico
+    if(dataset.contains("gato_05.png")){
+      int index = dataset.indexOf("gato_05.png");
+      System.out.println("Lo encontró" + " " + index);
+      dataset.remove(index);
+    }
+
+    //Creación de una sublista
+    List<String> subLista = dataset.subList(0, 3);
+    System.out.println("SubLista: " + subLista);
+
+    //Para reemplazar un elemento en específico
+    dataset.set(0, dataset.get(0).replace(target:".jpg", replacement:".tmp"));
+    System.out.println("dataSet" + " " + dataset);
+
+    //Método clear
+    System.out.println("Último elemento"+ dataset.get(0));
+    dataset.clear();
+    System.out.println("Tamaño de la lista actual: " + " " + dataset.size());
+  }
+}
