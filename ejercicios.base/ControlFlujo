@@ -1,0 +1,23 @@
+public class RecetaDeCocina {
+
+    public static void prepararReceta() {
+
+        int ingredientesPreparados = 5;
+        int tiempoDeCocina = 30;
+
+        System.out.println("Paso 1: Prepara los ingredientes.");
+        System.out.println("Ingredientes preparados: " + ingredientesPreparados);
+        System.out.println("Paso 2: Cocina el platillo.");
+        System.out.println("Tiempo de cocina (minutos): " + tiempoDeCocina);
+        System.out.println("Paso 3: Servir el platillo.");
+        System.out.println("El platillo está listo.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        RecetaDeCocina.prepararReceta();
+
+    }
+}
