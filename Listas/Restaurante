@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+
+abstract class Empleado {
+    public void trabajar() {
+        System.out.println("El empleado está trabajando...");
+    }
+
+    public void saludar() {
+        System.out.println("Hola, soy un empleado.");
+    }
+}
+
+// Subclase Cocinero
+class Cocinero extends Empleado {
+
+    @Override
+    public void saludar() {
+        System.out.println("Hola, soy el cocinero, preparo los alimentos.");
+    }
+}
+
+// Subclase Mesero
+class Mesero extends Empleado {
+
+    @Override
+    public void saludar() {
+        System.out.println("Hola, soy el mesero, atiendo a los clientes.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Empleado> empleados = new ArrayList<>();
+        empleados.add(new Cocinero());
+        empleados.add(new Mesero());
+
+        for (Empleado emp : empleados) {
+            emp.saludar();
+            emp.trabajar();
+        }
+    }
+}
